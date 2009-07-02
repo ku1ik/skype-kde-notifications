@@ -21,14 +21,9 @@ def OnAttach(status):
 
 def OnMessageStatus(Message, Status):
     if Status == 'RECEIVED':
-	msg = Message.FromDisplayName + ': ' + Message.Body
-        print(msg);
-	body = "<html><b>" + Message.FromDisplayName + ":</b> " + Message.Body.replace("\n", "<br/>") + "</html>"
-	chat = Message.Chat
-	print(chat)
-	chatName = chat.FriendlyName
-	print(chatName)
-	notifications.Notify('skype-visual-notifications', 0, 'someid', 'skype', chatName, body, [], [], 10000, dbus_interface='org.kde.VisualNotifications')
+        print(Message.FromDisplayName + ': ' + Message.Body)
+        body = "<html><b>" + Message.FromDisplayName + ":</b> " + Message.Body.replace("\n", "<br/>") + "</html>"
+        notifications.Notify('skype-visual-notifications', 0, 'someid', 'skype', Message.Chat.FriendlyName, body, [], [], 10000, dbus_interface='org.kde.VisualNotifications')
     if Status == 'SENT':
         print('Myself: ' + Message.Body);
 
