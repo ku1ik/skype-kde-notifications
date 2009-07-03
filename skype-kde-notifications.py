@@ -1,6 +1,7 @@
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-import sys
+import time
 import dbus
 import Skype4Py
 
@@ -41,8 +42,6 @@ print('*************************************************************************
 print 'Connecting to Skype..'
 skype.Attach();
 
-# ----------------------------------------------------------------------------------------------------
-# Looping until user types 'exit'
-Cmd = '';
-while not Cmd == 'exit':
-    Cmd = raw_input('');
+while True:
+    time.sleep(1)
+
